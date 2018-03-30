@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'wis-good-card',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./good-card.component.css']
 })
 export class GoodCardComponent implements OnInit {
+
+  @Input() good: any;
 
   constructor() { }
 

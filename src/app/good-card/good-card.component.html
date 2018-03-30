@@ -1,3 +1,9 @@
-<p>
-  good-card works!
-</p>
+<div class="container">
+  <img src={{good.imageUrlNormal}}>
+  <div style="margin: auto; text-align: center">
+    <p>{{good.name}}</p>
+    <p>{{ (good.price | pricePipe)}}</p>
+    <button>В Корзину</button>
+    <button>Хочу</button>
+  </div>
+</div>

@@ -10,7 +10,14 @@ import { GoodCardComponent } from './good-card/good-card.component';
 import { GoodsLikeComponent } from './goods-like/goods-like.component';
 import { GoodLikeCardComponent } from './good-like-card/good-like-card.component';
 import { AddDialogComponent } from './add-dialog/add-dialog.component';
-
+import { PageGoodsComponent } from './page-goods/page-goods.component';
+import { PageLikeGoodsComponent } from './page-like-goods/page-like-goods.component';
+import { PageBasketGoodsComponent } from './page-basket-goods/page-basket-goods.component';
+import { GoodsServiceService } from './goods-service.service';
+import { PageGoodComponent } from './page-good/page-good.component';
+import { HeaderInfoComponent } from './header-info/header-info.component';
+import { FormsModule } from '@angular/forms';
+import { PricePipe } from './price.pipe';
 
 @NgModule({
   declarations: [
@@ -20,13 +27,20 @@ import { AddDialogComponent } from './add-dialog/add-dialog.component';
     GoodCardComponent,
     GoodsLikeComponent,
     GoodLikeCardComponent,
-    AddDialogComponent
+    AddDialogComponent,
+    PageGoodsComponent,
+    PageLikeGoodsComponent,
+    PageBasketGoodsComponent,
+    PageGoodComponent,
+    HeaderInfoComponent,
+    PricePipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [GoodsServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -34,3 +34,9 @@ ng g c goodsLike
 ng g c goodLikeCard
 ng g c addDialog
 ng g s goodsService
+ng g c pageGoods
+ng g c pageGood
+ng g c pageLikeGoods
+ng g c pageBasketGoods
+ng g c headerInfo
+ng g p price

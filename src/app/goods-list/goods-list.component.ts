@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoodsServiceService } from '../goods-service.service';
 
 @Component({
   selector: 'wis-goods-list',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoodsListComponent implements OnInit {
 
-  constructor() { }
+  goods:any [];
+
+  constructor( private goodsSource: GoodsServiceService) { }
 
   ngOnInit() {
+    this.goodsSource.getGoods().subscribe( goods => { 
+      this.goods = goods; 
+    } );
   }
 
 }

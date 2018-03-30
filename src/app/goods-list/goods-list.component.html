@@ -1,3 +1,5 @@
-<p>
-  goods-list works!
-</p>
+<div class="container">
+  <div class="row" *ngIf="goods && goods.length>0">
+    <wis-good-card *ngFor="let good of goods" [good]=good></wis-good-card>
+  </div>
+</div>
