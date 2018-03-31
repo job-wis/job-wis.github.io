@@ -1,6 +1,18 @@
 <div class="container">
-    <p>
-        page-basket-goods works!
-    </p>
-      
+    <h2>Содержимое корзины:</h2>
+    <div class="row" *ngFor="let good of basketList; let i = index">
+        <div class="col-md">{{i}}</div>
+        <div class="col-md">
+            <img src="{{ good.imageUrlSmall }}">
+        </div>
+        <div class="col-md">{{ good.name }}</div>
+        <div class="col-md">
+            <button type="button" class="btn btn-success">В желаемое</button>
+        </div>
+        <div class="col-md">
+            <button type="button" class="btn btn-warning">Убрать</button>
+        </div>
+    </div>
+
+
 </div>

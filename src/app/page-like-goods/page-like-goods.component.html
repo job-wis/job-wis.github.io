@@ -1,7 +1,18 @@
 <div class="container">
+  <h2>Содержимое желаемого:</h2>
+  <div class="row" *ngFor="let good of likeList; let i = index">
+    <div class="col-md">{{i}}</div>
+    <div class="col-md">
+      <img src="{{ good.imageUrlSmall }}">
+    </div>
+    <div class="col-md">{{ good.name }}</div>
+    <div class="col-md">
+      <button type="button" class="btn btn-success">В корзину</button>
+    </div>
+    <div class="col-md-auto">
+      <button type="button" class="btn btn-warning">Не интересно</button>
+    </div>
+  </div>
 
-  <p>
-    page-like-goods works!
-  </p>
 
 </div>

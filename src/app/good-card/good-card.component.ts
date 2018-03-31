@@ -1,17 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from "@angular/core";
+import { ModalService } from "../modal.service"; //
+import { GoodsServiceService } from "../goods-service.service";
 
 @Component({
-  selector: 'wis-good-card',
-  templateUrl: './good-card.component.html',
-  styleUrls: ['./good-card.component.css']
+  selector: "wis-good-card",
+  templateUrl: "./good-card.component.html",
+  styleUrls: ["./good-card.component.css"]
 })
 export class GoodCardComponent implements OnInit {
-
   @Input() good: any;
 
-  constructor() { }
+  constructor(private gS: GoodsServiceService, private mS: ModalService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  addToBasket() {
+    this.mS["addToBasketDlg"].show(this.good);
   }
-
+  addToLike() {
+    this.gS.addToLike(this.good);
+  }
 }

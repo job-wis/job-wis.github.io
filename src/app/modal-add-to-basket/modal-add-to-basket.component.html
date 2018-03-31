@@ -1,0 +1,38 @@
+<div class="overlay" *ngIf="modalIsVisible" (click)="close($event)" (keydown)="close($event)">
+  <div class="container dialog">
+    <div class="row justify-content-md-end">
+      <button (click)="close()">X</button>
+    </div>
+    <div class="row justify-content-md-center">
+      <h4>Добавить в корзину</h4>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col col-sm-6">
+        <img src="https://job-wis.github.io/assets/apple-iphone-w150.jpg">
+      </div>
+      <div class="col col-sm-6">
+        <div class="row">
+          {{good.name}}
+        </div>
+        <div class="row">
+
+          <div class="col-md-4 m0">Кол-во:</div>
+          <div class="col-md-8 m0">
+            <input [(value)]="count" type="text" size="3">
+          </div>
+        </div>
+        <div class="row justify-content-md-start">
+          <div class="col-md-4 m0">Сумма:</div>
+          <div class="col-md-8 m0">{{ (good.price | pricePipe )}}</div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-auto">
+        <button class="addbutton" (click)="appendToBasket()">Добавить</button>
+      </div>
+    </div>
+  </div>
+</div>
