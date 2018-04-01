@@ -12,15 +12,17 @@ import { PageBasketGoodsComponent } from "./page-basket-goods/page-basket-goods.
 import { GoodsServiceService } from "./shared/goods-service.service";
 import { HeaderInfoComponent } from "./header-info/header-info.component";
 import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { PricePipe } from "./shared/price.pipe";
 import { ModalAddToBasketComponent } from "./modal-add-to-basket/modal-add-to-basket.component";
 
-import { ModalService } from "./modal.service";
+import { ModalService } from "./shared/modal.service";
 import { NgxMaskModule } from "ngx-mask";
 import { AliDatePipe } from "./shared/ali-date.pipe";
 import { MomentModule } from "angular2-moment";
-import { PoolDownComponent } from './pool-down/pool-down.component';
+import { PoolDownComponent } from "./pool-down/pool-down.component";
+import { SortLikePipe } from "./shared/sort-like.pipe";
 
 @NgModule({
   declarations: [
@@ -34,12 +36,14 @@ import { PoolDownComponent } from './pool-down/pool-down.component';
     PricePipe,
     ModalAddToBasketComponent,
     AliDatePipe,
-    PoolDownComponent
+    PoolDownComponent,
+    SortLikePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxMaskModule.forRoot(),
     MomentModule
   ],

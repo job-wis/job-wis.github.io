@@ -7,7 +7,7 @@ import { PageBasketGoodsComponent } from "./page-basket-goods/page-basket-goods.
 const routes: Routes = [
   { path: "", component: PageGoodsComponent },
   { path: "goods", component: PageGoodsComponent },
-  { path: "likegoods", component: PageLikeGoodsComponent },
+  { path: "like", component: PageLikeGoodsComponent },
   { path: "basket", component: PageBasketGoodsComponent }
 ];
 

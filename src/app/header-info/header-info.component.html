@@ -1,3 +1,31 @@
-<a href="" routerLink="/likegoods">Желаемое</a>
-<a href="" routerLink="/basket">В корзине</a>
-{{gS.basketList.length}} товаров на сумму {{ gS.basketSum() }}
+<div class="hinfo">
+
+    <div>
+        <button (click)="showPoolDown()">
+            <img src="assets/love-letter.jpg">
+        </button>
+
+    </div>
+    <div>
+        {{ gS.likeList.length }} товара
+    </div>&nbsp;
+    <div>
+
+
+        <a href="" routerLink="/basket">
+            <img src="assets/basket.jpg">
+        </a>
+
+
+    </div>
+    <div>
+        В корзине
+        <br> на сумму
+    </div>
+    <div>
+        <a href="" routerLink="/basket">
+            <b>{{gS.basketList.length}} товаров
+                <br> {{ gS.basketSum() | pricePipe }}</b>
+        </a>
+    </div>
+</div>

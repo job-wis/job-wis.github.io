@@ -3,7 +3,10 @@
   <div style="margin: auto; text-align: center">
     <p>{{good.name}}</p>
     <p>{{ (good.price | pricePipe)}}</p>
-    <button (click)="addToBasket()">В Корзину</button>
-    <button (click)="addToLike()">Хочу</button>
+    <button class="btn" (click)="addToBasket()">
+      <img src="assets/basket.jpg">В Корзину</button>
+    <button class="btn" (click)="addToLike()">
+      <img src="assets/love-letter.jpg">
+    </button>
   </div>
 </div>

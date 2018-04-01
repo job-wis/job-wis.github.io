@@ -11,10 +11,6 @@ export class GoodsServiceService {
   basketList: any[];
   likeList: any[];
 
-  /*countLike: number;
-  countBasket: number;
-  sumBasket: number;*/
-
   constructor() {
     this.getBasket().subscribe(basket => {
       this.basketList = basket;
@@ -41,18 +37,23 @@ export class GoodsServiceService {
     localStorage.setItem("basket", JSON.stringify(basket));
   }
 
+  saveLike(like) {
+    this.likeList = like;
+    localStorage.setItem("like", JSON.stringify(like));
+  }
+
   getLike() {
     return Observable.of(JSON.parse(localStorage.getItem("like") || "[]"));
   }
 
-  addToBasket(good: any, count: number, cb?: any) {
+  addToBasket(good: any, _count: number, cb?: any) {
     this.getBasket().subscribe(basket => {
       let _fRec = basket.find(item => item.good.id == good.id);
       basket = basket.filter(item => item.good.id != good.id);
       basket.push({
         good: good,
         date: new Date(),
-        count: Number(_fRec != undefined ? _fRec.count : 0) + Number(count)
+        count: Number(_fRec != undefined ? _fRec.count : 0) + Number(_count)
       });
       this.saveBasket(basket);
       if (cb) cb();
@@ -69,13 +70,13 @@ export class GoodsServiceService {
     let like = JSON.parse(localStorage.getItem("like") || "[]");
     if (undefined === like.find(item => item.good.id == good.id)) {
       like.push({ good: good, date: new Date() });
-      localStorage.setItem("like", JSON.stringify(like));
+      this.saveLike(like);
     }
   }
   deleteFromLike(good) {
     console.log(good);
     let like = JSON.parse(localStorage.getItem("like") || "[]");
     like = like.filter(item => item.good.id != good.id);
-    localStorage.setItem("like", JSON.stringify(like));
+    this.saveLike(like);
   }
 }
