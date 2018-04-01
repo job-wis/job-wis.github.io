@@ -18,7 +18,7 @@ export class PageBasketGoodsComponent implements OnInit {
   adress: string = "";
   comment: string = "";
 
-  constructor(private gS: GoodsServiceService, private fb: FormBuilder) {
+  constructor(public gS: GoodsServiceService, private fb: FormBuilder) {
     this.rForm = fb.group({
       name: [
         null,

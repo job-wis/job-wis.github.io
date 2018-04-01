@@ -8,7 +8,7 @@ import { ModalService } from "../shared/modal.service";
   styleUrls: ["./header-info.component.css"]
 })
 export class HeaderInfoComponent implements OnInit {
-  constructor(private gS: GoodsServiceService, private mS: ModalService) {}
+  constructor(public gS: GoodsServiceService, private mS: ModalService) {}
 
   ngOnInit() {}
   showPoolDown() {

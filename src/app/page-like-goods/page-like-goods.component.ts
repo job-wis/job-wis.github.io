@@ -8,7 +8,7 @@ import { ModalService } from "../shared/modal.service";
   styleUrls: ["./page-like-goods.component.css"]
 })
 export class PageLikeGoodsComponent implements OnInit {
-  constructor(private gS: GoodsServiceService, private mS: ModalService) {}
+  constructor(public gS: GoodsServiceService, private mS: ModalService) {}
 
   ngOnInit() {}
 
