@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { GoodsServiceService } from "../goods-service.service";
+import { GoodsServiceService } from "../shared/goods-service.service";
+import "rxjs/add/operator/map";
 
 @Component({
   selector: "wis-page-basket-goods",
@@ -7,10 +8,16 @@ import { GoodsServiceService } from "../goods-service.service";
   styleUrls: ["./page-basket-goods.component.css"]
 })
 export class PageBasketGoodsComponent implements OnInit {
-  basketList: any[];
   constructor(private gS: GoodsServiceService) {}
 
-  ngOnInit() {
-    this.gS.getBasket().subscribe(basket => (this.basketList = basket));
+  ngOnInit() {}
+
+  deleteFromBasket(item) {
+    this.gS.deleteFromBasket(item);
+  }
+
+  addToLike(record) {
+    this.gS.addToLike(record.good);
+    this.gS.deleteFromBasket(record);
   }
 }

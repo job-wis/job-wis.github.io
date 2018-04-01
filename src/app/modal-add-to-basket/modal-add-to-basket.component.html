@@ -19,12 +19,12 @@
 
           <div class="col-md-4 m0">Кол-во:</div>
           <div class="col-md-8 m0">
-            <input [(value)]="count" type="text" size="3">
+            <input id="inputValue" [value]="count" (input)="count = $event.target.value" type="number" min="1" max="10">
           </div>
         </div>
         <div class="row justify-content-md-start">
           <div class="col-md-4 m0">Сумма:</div>
-          <div class="col-md-8 m0">{{ (good.price | pricePipe )}}</div>
+          <div class="col-md-8 m0">{{ ((good.price * count) | pricePipe )}}</div>
 
         </div>
       </div>

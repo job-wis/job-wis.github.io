@@ -11,7 +11,7 @@
 
 .dialog {
   position: relative;
-  width: 400px;
+  width: 430px;
   height: 280px;
   margin: auto;
   background-color: #d8d8d8;
@@ -34,4 +34,8 @@
 .m0 {
   margin: 0px !important;
   padding: 0px !important;
+}
+
+#inputValue {
+  width: 50px;
 }

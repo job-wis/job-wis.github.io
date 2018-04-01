@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, ViewChild } from "@angular/core";
-import { ModalService } from "../modal.service"; //
-import { GoodsServiceService } from "../goods-service.service";
+import { Component, OnInit, Input } from "@angular/core";
+import { ModalService } from "../modal.service";
+import { GoodsServiceService } from "../shared/goods-service.service";
 
 @Component({
   selector: "wis-good-card",
