@@ -22,13 +22,13 @@
                     <img src="{{ item.good.imageUrlSmall }}">
                 </td>
                 <td>
-                    <input type="checkbox" [checked]="item.state" (change)="changeState($event, item.good)" class="form-check-input" id="exampleCheck1">{{ item.good.name }}</td>
+                    <input type="checkbox" [checked]="item.status" (change)="changeStatus($event, item.good)" class="form-check-input" id="exampleCheck1">{{ item.good.name }}</td>
                 <td>{{ item.date | amTimeAgo | aliDate }}</td>
                 <td>{{ item.good.price | pricePipe }}</td>
                 <td>
-                    <button class="btn" (click)="changeCount(item, 1)">+</button>
+                    <button type="button" class="btn btn-outline-info" (click)="changeCount(item, 1)">+</button>
                     {{ item.count }}
-                    <button class="btn" (click)="changeCount(item, -1)">-</button>
+                    <button class="btn btn-outline-info" (click)="changeCount(item, -1)">-</button>
                 </td>
                 <td>{{ (item.count * item.good.price) | pricePipe }}</td>
                 <td>
@@ -41,24 +41,25 @@
         </tbody>
     </table>
 
-    <form *ngIf="gS.basketList && gS.basketList.length>0">
+    <form *ngIf="gS.basketList && gS.basketList.length>0" [formGroup]="rForm" (ngSubmit)="sendToAPI(rForm.value)">
         <div class="form-group">
-            <label class="center-block">Фамилия Имя Отчество:
-                <input name="fio" class="form-control" placeholder="Фамилия Имя Отчество">
+            <label class="center-block ">Фамилия Имя Отчество:
+                <input name="fio " class="form-control" formControlName="name" placeholder="Фамилия Имя Отчество ">
             </label>
-            <label class="center-block">Телефон:
-                <input name="phone" type="text" class="form-control" placeholder="+7(123)4567-890" mask="+0(000)-0000-000s">
+            <label class="center-block ">Телефон:
+                <input name="phone " type="text " class="form-control" formControlName="phone" placeholder="+7(123)4567-890 " mask="+0(000)-0000-000s ">
             </label>
-            <label class="center-block">E-MAIL:
-                <input name="email" type="email" class="form-control" placeholder="E-MAIL">
+            <label class="center-block ">E-MAIL:
+                <input name="email " type="email " class="form-control" formControlName="email" placeholder="E-MAIL ">
             </label>
-            <label class="center-block">Адрес доставки:
-                <input name="adress" class="form-control" placeholder="Адрес доставки">
+            <label class="center-block ">Адрес доставки:
+                <input name="adress " class="form-control" formControlName="adress" placeholder="Адрес доставки ">
             </label>
-            <input name="comment" class="form-control" placeholder="Комментарий">
+            <input name="comment " class="form-control" formControlName="comment" placeholder="Комментарий ">
         </div>
 
 
-        <button type="submit" class="btn btn-primary">Оформить</button>
+        <input type="submit" class="btn btn-primary " value="Оформить" [disabled]="!rForm.valid">
     </form>
 </div>
+<div class=" container ">{{textToSend}}</div>

@@ -46,19 +46,29 @@ export class GoodsServiceService {
     return Observable.of(JSON.parse(localStorage.getItem("like") || "[]"));
   }
 
-  addToBasket(good: any, _count: number, cb?: any) {
+  addToBasketExt(good: any, _count: number, _status: any, cb?: any) {
     this.getBasket().subscribe(basket => {
       let _fRec = basket.find(item => item.good.id == good.id);
       basket = basket.filter(item => item.good.id != good.id);
       basket.push({
         good: good,
         date: new Date(),
+        status: _status === "!" ? !_fRec.status : _status,
         count: Number(_fRec != undefined ? _fRec.count : 0) + Number(_count)
       });
       this.saveBasket(basket);
       if (cb) cb();
     });
   }
+
+  addToBasket(good: any, _count: number, cb?: any) {
+    this.addToBasketExt(good, _count, true, cb);
+  }
+
+  changeStatus(good) {
+    this.addToBasketExt(good, 0, "!");
+  }
+
   deleteFromBasket(record) {
     this.getBasket().subscribe(basket => {
       basket = basket.filter(item => item.good.id != record.good.id);
